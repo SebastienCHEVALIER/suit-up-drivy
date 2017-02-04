@@ -18,6 +18,32 @@ DRIVY = (function namespace () {
       'pricePerKm': document.querySelector('#car .price-by-km').value
     };
   };
+  
+	 var cars = [{
+	  'id': 'p306',
+	  'vehicule': 'Peugeot 306',
+	  'pricePerDay': 20,
+	  'pricePerKm': 0.10,
+	  'img': 'assets/p306.jpg'
+	}, {
+	  'id': 'rr-sport',
+	  'vehicule': 'Landrover Sport', 
+	  'pricePerDay': 60,
+	  'pricePerKm': 0.30,
+	  'img': 'assets/rrsport.jpg'
+	}, {
+	  'id': 'p-boxster',
+	  'vehicule': 'Peugeot Boxster',
+	  'pricePerDay': 100,
+	  'pricePerKm': 0.45,
+	  'img': 'assets/pboxster.jpg'
+	}, {
+	  'id': 'l-esprit',
+	  'vehicule': 'Lotus Esprit',
+	  'pricePerDay': 35,
+	  'pricePerKm': 0.20,
+	  'img': 'assets/lesprit.jpg'
+	}];
 
   /**
    * Number of rental days from begin and end date
@@ -136,6 +162,7 @@ DRIVY = (function namespace () {
 
   return {
     'getCar': getCar,
-    'payActors': payActors
+    'payActors': payActors,
+	'cars': cars
   };
 }());

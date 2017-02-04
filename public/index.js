@@ -13,7 +13,19 @@ var DRIVY = DRIVY || {};
 
     document.querySelector('#actors').innerHTML = rendered;
   };
+  
+  var renderCars = function renderCars (cars) {
+    var template = document.querySelector('#templateCars').innerHTML;
 
+    Mustache.parse(template);   // optional, speeds up future uses
+
+    var rendered = Mustache.render(template, {'cars': cars});
+
+    document.querySelector('#cars').innerHTML = rendered;
+  };
+  var cars = DRIVY.cars;
+  renderCars(cars);
+  
   var button = document.querySelector('#compute');
 
   button.addEventListener('click', function onClick () {

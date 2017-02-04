@@ -1,31 +1,90 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CSS/HTML Workshop with Drivy</title>
+	<meta charset="UTF-8" />
+    <title>Drivy</title>
+	<link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://storage.googleapis.com/code.getmdl.io/1.0.1/material.teal-red.min.css" />
+	<script src="http://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>	  
+	<link rel="stylesheet" href="style.css" />
+	
   </head>
   <body>
-    <div id="car">
-      <input class="model" type="text" placeholder="Car model"/>
-      <input class="price-by-day" type="number" placeholder="Price by day"/>
-      <input class="price-by-km" type="number" placeholder="Price by km"/>
-    </div>
-    <div id="rental">
-      <input class="begin" type="date" placeholder="Rental begin date"/>
-      <input class="end" type="date" placeholder="Rental end date"/>
-      <input class="distance" type="number" placeholder="Distance in km"/>
-      <input class="option" type="checkbox" placeholder="Deductible option"/>
-    </div>
-    <button id="compute">Compute</button>
-    <div id="actors"></div>
+  <div class="formulaire">
+		<h1> Welcome On DRIVY</h1> 
+		<div class="mdl-grid content-grid">
+		<div id="car" class="mdl-card mdl-cell--5-col mdl-shadow--2dp formulaire-card">
+			<div class="mdl-card__title">
+			  <h2 class="mdl-card__title-text formulaire-card-title">Car</h2>
+			</div>
+			<div class="mdl-card__supporting-text">
+			<center>
+				<p><input class="model" type="text" placeholder="Car model"/></p>
+				<p><input class="price-by-day" type="number" placeholder="Price by day"/></p>
+				<p><input class="price-by-km" type="number" placeholder="Price by km"/></p>
+			</center>
+			</div>
+		</div>
+		
+		<div id="rental" class="mdl-card mdl-cell--5-col mdl-shadow--2dp formulaire-card">
+				<div class="mdl-card__title">
+				  <h2 class="mdl-card__title-text formulaire-card-title">Rental</h2>
+				</div>
+				<div class="mdl-card__supporting-text">
+				<center>
+					<p><input class="begin" type="date" placeholder="Rental begin date"/></p>
+					<p><input class="end"  type="date" placeholder="Rental end date"/></p>
+					<p><input class="distance"  type="number" placeholder="Distance in km" /></p>
+					<div class="formfield-checkbox">
+					<label  for="check">Deductible option </label><input class="option" id="check" type="checkbox" placeholder="Deductible option"/>
+					</div>
+				</center>
+			</div>
+		</div>
+		</div>  
+    <button id="compute" >Compute</button>
+	</div>
+    <div id="actors" class="actors-background"></div>
+	<div class="voitures">
+	<p><h4> Our Cars </h4></p>
+	<div id="cars" class="mdl-grid cars-grid">  </div>
+	</div>
+	</div>
     <script id="template" type="x-tmpl-mustache">
+	<center>
+	<div class="mdl-grid content-grid"">
+	
       {{#actors}}
-        <div class="actor">
-          <span>{{who}}</span>
-          <span>{{type}}</span>
-          <span>{{amount}}</span>
-        </div>
+		<div class="mdl-cell mdl-cell--4-col">
+			
+				<div class="actor">
+				  <p ><span>{{who}}</span></p>
+				  <p><span>{{type}}</span></p>
+				  <p><span>{{amount}}</span></p>
+				</div>
+			
+		</div>
       {{/actors}}
+	</div>
+	</center>
     </script>
+	<script id="templateCars" type="x-tmpl-mustache">
+		{{#cars}}
+		<div class="mdl-cell--4-col mdl-card cars-card">
+			<figure class="mdl-card__media">
+				<img src={{img}} alt="" />
+			</figure>
+			<div class="mdl-card__title cars-title">
+			  <h3 class="mdl-card__title-text cars-text ">{{vehicule}}</h1>
+			</div>
+			<div class="mdl-card__supporting-text cars-text">
+			  <p>Price by day : {{pricePerDay}} </p>
+			  <p>Price by km : {{pricePerKm}} </p>
+			</div>
+		</div>
+		{{/cars}}
+	</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
     <script src="drivy.js"></script>
     <script src="index.js"></script>
